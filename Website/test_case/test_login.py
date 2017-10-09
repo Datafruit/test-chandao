@@ -1,3 +1,6 @@
+#!/usr/bin/python
+#coding:utf-8
+
 import unittest
 from model import function,myunit
 from page_object.LoginPage import *

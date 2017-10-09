@@ -1,5 +1,5 @@
 import unittest
-from  driver import *
+from driver.driver import *
 
 class StartEnd(unittest.TestCase):
     def setUp(self):
@@ -7,5 +7,5 @@ class StartEnd(unittest.TestCase):
         self.driver.maximize_window()
 
     def tearDown(self):
-         # self.driver.quit()
+        # self.driver.quit()
         return 0

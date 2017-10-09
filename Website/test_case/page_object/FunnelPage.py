@@ -1,3 +1,5 @@
+#coding:utf-8
+
 from selenium.webdriver.common.by import By
 from time import sleep
 from page_object.BasePage import Page
@@ -146,8 +148,10 @@ class FunnelPage(Page):
     #     sleep(1)
     #     self.type_funnel_click(*self.done_loc)
         sleep(1)
-        self.driver.find_element(*self.savebutton2_loc)
-        sleep(1)
+        # self.driver.find_element(*self.savebutton2_loc)
+        self.type_funnel_click(*self.savebutton2_loc)
+
+        sleep(2)
         self.driver.find_element(*self.inputname_loc)
         sleep(1)
         self.type_retention_send("测试漏斗1",*self.inputname_loc)

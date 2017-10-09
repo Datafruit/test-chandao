@@ -1,3 +1,5 @@
+#coding:utf-8
+
 from selenium.webdriver.common.by import By
 import  unittest
 from page_object.BasePage import *
