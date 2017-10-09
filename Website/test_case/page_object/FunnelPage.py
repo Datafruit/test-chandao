@@ -78,12 +78,13 @@ class FunnelPage(Page):
         sleep(1)
         self.type_funnel_click(*self.funnel_loc)
         sleep(1)
-        # self.type_funnel_click(*self.newfunnel_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.type1_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see1_loc)
-        # sleep(1)
+        self.type_funnel_click(*self.newfunnel_loc)
+        sleep(1)
+        self.type_funnel_click(*self.type1_loc)
+        sleep(1)
+        self.type_funnel_click(*self.see1_loc)
+        sleep(1)
+
         # self.type_funnel_click(*self.page_loc)
         # sleep(1)
         # self.type_funnel_click(*self.see2_loc)
@@ -115,8 +116,8 @@ class FunnelPage(Page):
         # self.type_funnel_click(*self.week_loc)
         # sleep(1)
         # self.type_funnel_click(*self.see8_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.done_loc)
+        sleep(1)
+        self.type_funnel_click(*self.done_loc)
     #
     # def funnel_action2(self):
     #     funnel=self.find_element(*self.savebutton1_loc)
@@ -124,15 +125,33 @@ class FunnelPage(Page):
     #     act = ActionChains(self.driver).move_to_element(btn)
     #     sleep(1)
     #     act.perform()
+
         # self.driver.find_element(*self.savebutton1_loc).click()
-        # self.type_funnel_click(*self.savebutton1_loc)
-        # sleep(1)
-        # self.driver.find_element(*self.inputname_loc).click()
-        # # self.type_funnel_click(*self.inputname_loc)
-        # sleep(1)
-        # self.type_retention_send("测试漏斗",*self.inputname_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.savebutton2_loc)
+        sleep(3)
+
+        self.driver.execute_script("""
+        function eventFire(el, etype){
+          if (el.fireEvent) {
+            el.fireEvent('on' + etype);
+          } else {
+            var evObj = document.createEvent('Events');
+            evObj.initEvent(etype, true, false);
+            el.dispatchEvent(evObj);
+          }
+        }
+        var btn = document.querySelector('#main-content > div > div:nth-child(2) > div.fright > button')
+        eventFire(btn, 'mouseover')
+        """)
+        # btn = self.driver.find_element_by_css_selector("#main-content > div > div:nth-child(2) > div.fright > button")
+        # ActionChains(self.driver).move_to_element(btn).perform()
+
+        sleep(2)
+        self.driver.find_element(*self.inputname_loc).click()
+        self.type_funnel_click(*self.inputname_loc)
+        sleep(1)
+        self.type_retention_send("测试漏斗",*self.inputname_loc)
+        sleep(1)
+        self.type_funnel_click(*self.savebutton2_loc)
 
 
     # def funnel_action3(self):
@@ -147,14 +166,16 @@ class FunnelPage(Page):
     #     self.type_funnel_click(*self.type_loc)
     #     sleep(1)
     #     self.type_funnel_click(*self.done_loc)
-        sleep(1)
+        sleep(3)
         # self.driver.find_element(*self.savebutton2_loc)
         self.type_funnel_click(*self.savebutton2_loc)
 
-        sleep(2)
+        sleep(3)
         self.driver.find_element(*self.inputname_loc)
         sleep(1)
-        self.type_retention_send("测试漏斗1",*self.inputname_loc)
+        self.driver.find_element(*self.inputname_loc).send_keys("测试漏斗1")
+
+        # self.type_retention_send("测试漏斗1",*self.inputname_loc)
         sleep(1)
         self.type_funnel_click(*self.updatebutton_loc)
 
