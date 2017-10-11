@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+#coding:utf-8
+
+from selenium.webdriver.common.by import By
+import  unittest
+>>>>>>> aaa592cbf58c26b137412d00e1a483247bdec65e
 from page_object.BasePage import *
 
 class DashboardsPage(Page):
