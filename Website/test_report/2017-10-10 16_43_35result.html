@@ -150,9 +150,9 @@ function showOutput(id, name) {
 <div class="container">
     <div class='heading'>
 <h1>Test report</h1>
-<p><strong>Start Time:</strong> 2017-09-28 15:45:49</p>
-<p><strong>Duration:</strong> 0:01:19.336622</p>
-<p><strong>Status:</strong> <span class="text text-success">Pass <strong>1</strong></span></p>
+<p><strong>Start Time:</strong> 2017-10-10 16:43:35</p>
+<p><strong>Duration:</strong> 0:01:20.710645</p>
+<p><strong>Status:</strong> <span class="text text-warning">Error <strong>1</strong></span></p>
 
 <p class='description'>220前端的测试报告</p>
 </div>
@@ -177,32 +177,48 @@ function showOutput(id, name) {
     </thead>
     <tbody>
         
-<tr class='text text-success'>
-    <td>test_retention.RrtentionTest</td>
-    <td>1</td>
+<tr class='text text-warning'>
+    <td>test_useraction.Test_Useraction</td>
     <td>1</td>
     <td>0</td>
     <td>0</td>
+    <td>1</td>
     <td><a class="btn btn-xs btn-primary"href="javascript:showClassDetail('c1',1)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='text text-success'><div class='testcase'>test_retention: 留存分析</div></td>
+<tr id='ft1.1' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_usergroup1: 事件分析</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
-        pass</a>
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
 
-    <div id='div_pt1.1' class="popup_window">
+    <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.1: test_retention start
+ft1.1: test_usergroup1 start
 Test page is http://192.168.0.125:8080/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\untitled2\AutoTest_Project\Website\test_case\test_useraction.py", line 65, in test_usergroup1
+    po1.useraction_action8()
+  File "C:\Users\Administrator\PycharmProjects\untitled2\AutoTest_Project\Website\test_case\page_object\UseractionPage.py", line 145, in useraction_action8
+    self.type_ueseraction_click(*self.event1_loc)
+  File "C:\Users\Administrator\PycharmProjects\untitled2\AutoTest_Project\Website\test_case\page_object\UseractionPage.py", line 61, in type_ueseraction_click
+    self.find_element(*loc).click()
+  File "D:\Python35\lib\site-packages\selenium\webdriver\remote\webelement.py", line 65, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\Python35\lib\site-packages\selenium\webdriver\remote\webelement.py", line 385, in _execute
+    return self._parent.execute(command, params)
+  File "D:\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 173, in execute
+    self.error_handler.check_response(response)
+  File "D:\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 166, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementNotVisibleException: Message: 'element not visible\n  (Session info: chrome=59.0.3071.115)\n  (Driver info: chromedriver=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41),platform=Windows NT 10.0.14393 x86_64)' 
 
 
         </pre>
@@ -217,9 +233,9 @@ Test page is http://192.168.0.125:8080/
         <tr id='total_row'>
             <td>Total</td>
             <td>1</td>
-            <td class="text text-success">1</td>
+            <td class="text text-success">0</td>
             <td class="text text-danger">0</td>
-            <td class="text text-warning">0</td>
+            <td class="text text-warning">1</td>
             <td>&nbsp;</td>
         </tr>
     </tfoot>

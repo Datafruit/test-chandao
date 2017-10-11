@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 class Page():#页类基础
     def __init__(self,driver):#初始化
         self.driver=driver
-        self.base_url="http://192.168.0.125:8080"
+        self.base_url="http://192.168.0.220:8000"
         self.timeout=10
         sleep(1)
 #打开不同子页面git
@@ -55,3 +55,18 @@ class Page():#页类基础
         self.type_time3(time2)
         sleep(0.5)
         self.type_time2(*self.timesureanalytic_loc)
+
+
+
+    def type_click(self,*loc):
+        self.find_element(*loc).click()
+
+    def type_click1(self,*loc):
+        for obj in self.driver.find_elements(*loc):
+            if obj.is_displayed():
+                obj.click()
+
+    def type_send(self,send_value,*loc):
+        self.find_element(*loc).click()
+        self.find_element(*loc).clear()
+        self.find_element(*loc).send_keys(send_value)

@@ -1,7 +1,5 @@
-import unittest
 from model import function,myunit
 from page_object.LoginPage import *
-from time import sleep
 from page_object.DashboardsPage import *
 class LoginTest(myunit.StartEnd):
 

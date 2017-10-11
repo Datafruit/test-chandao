@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
 from time import sleep
 from page_object.BasePage import Page
-from selenium.webdriver.common.action_chains import ActionChains
+
+
 
 class FunnelPage(Page):
     #用户运营
@@ -28,7 +29,7 @@ class FunnelPage(Page):
     see6_loc = (By.XPATH, "//*[text()='Apple品牌列表页']")
     see7_loc = (By.XPATH, "//*[text()='停留']")
     see8_loc=(By.XPATH,"//*[text()='3 天']")
-    see9_loc=(By.XPATH,"//*[text()='测试漏斗1']")
+    see9_loc=(By.XPATH,"//li[text()='测试漏斗1']")
     #时间控件定位
     time_loc=(By.CSS_SELECTOR,"#main-content > div > div:nth-child(5) > div:nth-child(1) > div.mg2b.height32.line-height32 > div.time-picker-format.relative.iblock.iblock.width260.mg2r")
     #完成创建
@@ -43,8 +44,10 @@ class FunnelPage(Page):
     savebutton1_loc=(By.CSS_SELECTOR,"#main-content > div > div:nth-child(2) > div.fright > button.ant-btn.ant-btn-success")
     #输入名称
     inputname_loc=(By.CSS_SELECTOR,".ant-tabs-tabpane.ant-tabs-tabpane-active > div > div:nth-child(2) > input")
+    #保存确认
+    savebutton2_loc=(By.CSS_SELECTOR,".ant-tabs-content.ant-tabs-content-animated > div > div > div.ant-col-24.pd1.alignright > button")
     #保存
-    savebutton2_loc=(By.CSS_SELECTOR,"#main-content > div > div:nth-child(2) > div.fright > button.ant-btn.ant-btn-success")
+    savebutton3_loc=(By.CSS_SELECTOR,".fright > button.ant-btn.ant-btn-success")
     #更新按钮
     updatebutton_loc=(By.CSS_SELECTOR,".ant-btn.ant-btn-primary.width-100")
     #流失分析按钮
@@ -70,83 +73,115 @@ class FunnelPage(Page):
                 abc.clear()
                 abc.send_keys(send_values)
 
+    def type_funnel_click1(self,address):
+        self.driver.execute_script("""
+        function eventFire(el, etype){
+          if (el.fireEvent) {
+            el.fireEvent('on' + etype);
+          } else {
+            var evObj = document.createEvent('Events');
+            evObj.initEvent(etype, true, false);
+            el.dispatchEvent(evObj);
+          }
+        }
+        var btn = document.querySelector("""+address+""")
+        eventFire(btn, 'mouseover')
+        """)
 
     def funnel_action1(self):
         self.type_funnel_click(*self.traffic_loc)
         sleep(1)
         self.type_funnel_click(*self.funnel_loc)
         sleep(1)
-        # self.type_funnel_click(*self.newfunnel_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.type1_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see1_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.page_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see2_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.addfunnel_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.page_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see3_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.type_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see7_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.addfunnel_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.page_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see4_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.event_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see5_loc)
-        # sleep(2)
-        # self.type_funnel_click(*self.time_loc)
-        # sleep(1)
-        # self.time_type('2017-07-01 00:02:00','2017-07-31 00:05:00')
-        # sleep(1)
-        # self.type_funnel_click(*self.week_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see8_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.done_loc)
-    #
-    # def funnel_action2(self):
-    #     funnel=self.find_element(*self.savebutton1_loc)
-    #     btn = self.driver.find_element_by_css_selector("#main-content > div > div:nth-child(2) > div.fright > button")
-    #     act = ActionChains(self.driver).move_to_element(btn)
-    #     sleep(1)
-    #     act.perform()
-        # self.driver.find_element(*self.savebutton1_loc).click()
-        # self.type_funnel_click(*self.savebutton1_loc)
-        # sleep(1)
-        # self.driver.find_element(*self.inputname_loc).click()
-        # # self.type_funnel_click(*self.inputname_loc)
-        # sleep(1)
-        # self.type_retention_send("测试漏斗",*self.inputname_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.savebutton2_loc)
-
-
-    # def funnel_action3(self):
-    #     self.type_funnel_click(*self.changebutton_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.addfunnel_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.page_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.see6_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.type_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.done_loc)
+        self.type_funnel_click(*self.newfunnel_loc)
         sleep(1)
-        self.driver.find_element(*self.savebutton2_loc)
+        self.type_funnel_click(*self.type1_loc)
+        sleep(1.5)
+        self.type_funnel_click(*self.see1_loc)
+        # self.type_findelement(*self.see1_loc)
+        sleep(2)
+        self.type_funnel_click(*self.page_loc)
+        sleep(1)
+        self.type_funnel_click(*self.see2_loc)
+        sleep(1)
+        self.type_funnel_click(*self.addfunnel_loc)
+        sleep(1)
+        self.type_funnel_click(*self.page_loc)
+        sleep(1)
+        self.type_funnel_click(*self.see3_loc)
+        sleep(1)
+        self.type_funnel_click(*self.type_loc)
+        sleep(1)
+        self.type_funnel_click(*self.see7_loc)
+        sleep(1)
+        self.type_funnel_click(*self.addfunnel_loc)
+        sleep(1)
+        self.type_funnel_click(*self.page_loc)
+        sleep(1)
+        self.type_funnel_click(*self.see4_loc)
+        sleep(1)
+        self.type_funnel_click(*self.event_loc)
+        sleep(1)
+        self.type_funnel_click(*self.see5_loc)
+        sleep(2)
+        self.type_funnel_click(*self.time_loc)
+        sleep(1)
+        self.time_type('2017-07-01 00:02:00','2017-07-31 00:05:00')
+        sleep(1)
+        self.type_funnel_click(*self.week_loc)
+        sleep(1)
+        self.type_funnel_click(*self.see8_loc)
+        sleep(1)
+        self.type_funnel_click(*self.done_loc)
+
+    def funnel_action2(self):
+        self.driver.execute_script("""
+        function eventFire(el, etype){
+          if (el.fireEvent) {
+            el.fireEvent('on' + etype);
+          } else {
+            var evObj = document.createEvent('Events');
+            evObj.initEvent(etype, true, false);
+            el.dispatchEvent(evObj);
+          }
+        }
+        var btn = document.querySelector('#main-content > div > div:nth-child(2) > div.fright > button')
+        eventFire(btn, 'mouseover')
+        """)
+        sleep(1)
+        self.type_funnel_click(*self.inputname_loc)
+        sleep(0.5)
+        self.type_retention_send("测试漏斗",*self.inputname_loc)
+        sleep(1)
+        self.type_funnel_click(*self.savebutton2_loc)
+
+
+    def funnel_action3(self):
+        self.type_funnel_click(*self.changebutton_loc)
+        sleep(1)
+        self.type_funnel_click(*self.addfunnel_loc)
+        sleep(1)
+        self.type_funnel_click(*self.page_loc)
+        sleep(1)
+        self.type_funnel_click(*self.see6_loc)
+        sleep(1)
+        self.type_funnel_click(*self.type_loc)
+        sleep(1)
+        self.type_funnel_click(*self.done_loc)
+        sleep(1)
+        self.driver.execute_script("""
+        function eventFire(el, etype){
+          if (el.fireEvent) {
+            el.fireEvent('on' + etype);
+          } else {
+            var evObj = document.createEvent('Events');
+            evObj.initEvent(etype, true, false);
+            el.dispatchEvent(evObj);
+          }
+        }
+        var btn = document.querySelector('.fright > button.ant-btn.ant-btn-success')
+        eventFire(btn, 'mouseover')
+        """)
         sleep(1)
         self.driver.find_element(*self.inputname_loc)
         sleep(1)
