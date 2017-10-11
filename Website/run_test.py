@@ -1,6 +1,3 @@
-#!/usr/bin/python
-#coding:utf-8
-
 import unittest
 from function import *
 from BSTestRunner import BSTestRunner

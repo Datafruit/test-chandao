@@ -1,5 +1,3 @@
-#coding:utf-8
-
 from selenium.webdriver.common.by import By
 from time import sleep
 from page_object.BasePage import Page
@@ -98,7 +96,6 @@ class FunnelPage(Page):
         self.type_funnel_click(*self.newfunnel_loc)
         sleep(1)
         self.type_funnel_click(*self.type1_loc)
-<<<<<<< HEAD
         sleep(1.5)
         self.type_funnel_click(*self.see1_loc)
         # self.type_findelement(*self.see1_loc)
@@ -138,56 +135,6 @@ class FunnelPage(Page):
         self.type_funnel_click(*self.done_loc)
 
     def funnel_action2(self):
-=======
-        sleep(1)
-        self.type_funnel_click(*self.see1_loc)
-        sleep(1)
-
-        # self.type_funnel_click(*self.page_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see2_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.addfunnel_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.page_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see3_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.type_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see7_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.addfunnel_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.page_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see4_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.event_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see5_loc)
-        # sleep(2)
-        # self.type_funnel_click(*self.time_loc)
-        # sleep(1)
-        # self.time_type('2017-07-01 00:02:00','2017-07-31 00:05:00')
-        # sleep(1)
-        # self.type_funnel_click(*self.week_loc)
-        # sleep(1)
-        # self.type_funnel_click(*self.see8_loc)
-        sleep(1)
-        self.type_funnel_click(*self.done_loc)
-    #
-    # def funnel_action2(self):
-    #     funnel=self.find_element(*self.savebutton1_loc)
-    #     btn = self.driver.find_element_by_css_selector("#main-content > div > div:nth-child(2) > div.fright > button")
-    #     act = ActionChains(self.driver).move_to_element(btn)
-    #     sleep(1)
-    #     act.perform()
-
-        # self.driver.find_element(*self.savebutton1_loc).click()
-        sleep(3)
-
->>>>>>> aaa592cbf58c26b137412d00e1a483247bdec65e
         self.driver.execute_script("""
         function eventFire(el, etype){
           if (el.fireEvent) {
@@ -201,25 +148,14 @@ class FunnelPage(Page):
         var btn = document.querySelector('#main-content > div > div:nth-child(2) > div.fright > button')
         eventFire(btn, 'mouseover')
         """)
-<<<<<<< HEAD
         sleep(1)
         self.type_funnel_click(*self.inputname_loc)
         sleep(0.5)
-=======
-        # btn = self.driver.find_element_by_css_selector("#main-content > div > div:nth-child(2) > div.fright > button")
-        # ActionChains(self.driver).move_to_element(btn).perform()
-
-        sleep(2)
-        self.driver.find_element(*self.inputname_loc).click()
-        self.type_funnel_click(*self.inputname_loc)
-        sleep(1)
->>>>>>> aaa592cbf58c26b137412d00e1a483247bdec65e
         self.type_retention_send("测试漏斗",*self.inputname_loc)
         sleep(1)
         self.type_funnel_click(*self.savebutton2_loc)
 
 
-<<<<<<< HEAD
     def funnel_action3(self):
         self.type_funnel_click(*self.changebutton_loc)
         sleep(1)
@@ -247,30 +183,9 @@ class FunnelPage(Page):
         eventFire(btn, 'mouseover')
         """)
         sleep(1)
-=======
-    # def funnel_action3(self):
-    #     self.type_funnel_click(*self.changebutton_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.addfunnel_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.page_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.see6_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.type_loc)
-    #     sleep(1)
-    #     self.type_funnel_click(*self.done_loc)
-        sleep(3)
-        # self.driver.find_element(*self.savebutton2_loc)
-        self.type_funnel_click(*self.savebutton2_loc)
-
-        sleep(3)
->>>>>>> aaa592cbf58c26b137412d00e1a483247bdec65e
         self.driver.find_element(*self.inputname_loc)
         sleep(1)
-        self.driver.find_element(*self.inputname_loc).send_keys("测试漏斗1")
-
-        # self.type_retention_send("测试漏斗1",*self.inputname_loc)
+        self.type_retention_send("测试漏斗1",*self.inputname_loc)
         sleep(1)
         self.type_funnel_click(*self.updatebutton_loc)
 

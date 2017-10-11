@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 
-=======
-#coding:utf-8
-
-from time import sleep
->>>>>>> aaa592cbf58c26b137412d00e1a483247bdec65e
 from model import function,myunit
 from page_object.FunnelPage import *
 import unittest

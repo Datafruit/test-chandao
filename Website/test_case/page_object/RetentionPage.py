@@ -134,7 +134,7 @@ class RetentionPage(Page):
         self.find_element(*self.input32_loc).send_keys(value)
 
     def type_savebutton1(self):
-        self.find_elevment(*self.savebutton1_loc).click()
+        self.find_element(*self.savebutton1_loc).click()
 
     def type_inputname(self):
         self.find_element(*self.inputname_loc).click()

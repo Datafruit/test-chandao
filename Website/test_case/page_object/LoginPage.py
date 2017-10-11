@@ -1,5 +1,3 @@
-#coding:utf-8
-
 from BasePage import *
 from selenium.webdriver.common.by import By
 

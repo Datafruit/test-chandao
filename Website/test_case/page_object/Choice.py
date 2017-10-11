@@ -1,5 +1,3 @@
-#coding:utf-8
-
 from page_object.LoginPage import *
 
 class Choice(Page):
