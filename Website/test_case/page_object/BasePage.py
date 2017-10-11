@@ -1,10 +1,16 @@
+#coding:utf-8
+
 from time import sleep
 from selenium.webdriver.common.by import By
 
 class Page():#页类基础
     def __init__(self,driver):#初始化
         self.driver=driver
+<<<<<<< HEAD
         self.base_url="http://192.168.0.220:8000"
+=======
+        self.base_url="http://localhost:8080"
+>>>>>>> aaa592cbf58c26b137412d00e1a483247bdec65e
         self.timeout=10
         sleep(1)
 #打开不同子页面git

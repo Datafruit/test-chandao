@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+#!/usr/bin/python
+#coding:utf-8
+
+import unittest
+>>>>>>> aaa592cbf58c26b137412d00e1a483247bdec65e
 from model import function,myunit
 from page_object.LoginPage import *
 from page_object.DashboardsPage import *
