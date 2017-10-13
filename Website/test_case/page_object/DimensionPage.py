@@ -43,8 +43,6 @@ class DimensionPage(Page):
     deletelabel_loc=(By.CSS_SELECTOR," div:nth-child(1) > div > div > span.fright > i.anticon.anticon-close-circle-o.pointer.mg2x.font16.color-grey")
     #删除确认
     deletesure_loc=(By.CSS_SELECTOR,".ant-popover-buttons > button.ant-btn.ant-btn-primary.ant-btn-sm")
-    #退出
-    out_loc=(By.CSS_SELECTOR,".ant-modal-content > button")
     #修改
     change_loc=(By.CSS_SELECTOR,"tr:nth-child(1) > td:nth-child(7) > div > i.sugoicon.sugo-edit.color-grey.font14.pointer.hover-color-main")
     #删除

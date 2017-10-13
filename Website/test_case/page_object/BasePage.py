@@ -1,5 +1,6 @@
 from time import sleep
 from selenium.webdriver.common.by import By
+import time
 
 class Page():#页类基础
     def __init__(self,driver):#初始化
@@ -21,6 +22,15 @@ class Page():#页类基础
 #元素定位方法封装
     def find_element(self,*loc):
         return self.driver.find_element(*loc)
+
+#实时时间封装
+    def nowtime(self):
+        return time.strftime("%Y-%m-%d %H:%M:%S")
+
+#正上方提示栏封装
+    assert_loc=(By.CSS_SELECTOR,".ant-message-custom-content.ant-message-success>span")
+    def type_assert(self):
+        return self.find_element(*self.assert_loc).text
 
     #时间控件封装
     #左边时间框
