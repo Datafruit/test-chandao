@@ -27,10 +27,6 @@ class Page():#页类基础
     def nowtime(self):
         return time.strftime("%Y-%m-%d %H:%M:%S")
 
-#正上方提示栏封装
-    assert_loc=(By.CSS_SELECTOR,".ant-message-custom-content.ant-message-success>span")
-    def type_assert(self):
-        return self.find_element(*self.assert_loc).text
 
     #时间控件封装
     #左边时间框
@@ -66,8 +62,6 @@ class Page():#页类基础
         sleep(0.5)
         self.type_time2(*self.timesureanalytic_loc)
 
-
-
     def type_click(self,*loc):
         self.find_element(*loc).click()
 
@@ -80,3 +74,7 @@ class Page():#页类基础
         self.find_element(*loc).click()
         self.find_element(*loc).clear()
         self.find_element(*loc).send_keys(send_value)
+
+
+
+

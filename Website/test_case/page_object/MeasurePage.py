@@ -1,5 +1,6 @@
 from page_object.DimensionPage import *
 
+
 class MeasurePage(Page):
     #数据管理
     project_loc=(By.XPATH,'//*[text()="数据管理"]')
@@ -35,7 +36,7 @@ class MeasurePage(Page):
     sharesure_loc=(By.CSS_SELECTOR,".ant-btn.ant-btn-success.iblock")
     authorization3_loc = (By.XPATH, '//li[text()="全部取消授权"]')
     #标签按钮
-    label1_loc=(By.CSS_SELECTOR,".pd2b > div > div.fright > div > button")
+    label1_loc=(By.CSS_SELECTOR,"#main-content > div > div.scroll-content > div > div > div > div.pd2b > div > div.fright > div > button")
     #标签管理按钮
     label2_loc=(By.CSS_SELECTOR,".ant-popover-title > div > span.fright > button")
     #标签名称
@@ -87,6 +88,8 @@ class MeasurePage(Page):
         self.type_click(*self.set_loc)
 
     def measure_action2(self):
+        self.driver.refresh()
+        sleep(2)
         DimensionPage.dimension_action4(self)
 
     def measure_action3(self):
@@ -101,6 +104,31 @@ class MeasurePage(Page):
     def measure_action6(self):
         DimensionPage.dimension_action8(self)
 
+    def measure_action7(self):
+        self.driver.refresh()
+        sleep(2)
+        self.type_click(*self.change_loc)
+        sleep(1)
+        self.type_send("测试指标%s"%self.nowtime(),*self.name_loc)
+        sleep(1.5)
+        self.type_click(*self.set_loc)
+
+    def measure_action8(self):
+        self.driver.refresh()
+        sleep(2)
+        self.type_click(*self.delete_loc)
+        sleep(1)
+        self.type_click(*self.deletesure_loc)
+
+
+#正上方提示栏封装
+    assert1_loc = (By.CSS_SELECTOR, ".ant-message-custom-content.ant-message-success>span")
+    def type_assert1(self):
+        return self.driver.find_element(*self.assert1_loc).text
+
+    assert3_loc=(By.CSS_SELECTOR,".ant-spin-nested-loading > div > div > div:nth-child(1) > div > div > span.fleft > b")
+    def type_assert3(self):
+        return self.find_element(*self.assert3_loc).text
 
 
 

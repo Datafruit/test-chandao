@@ -103,7 +103,7 @@ class DimensionPage(Page):
         self.type_click(*self.label2_loc)
         sleep(1)
         self.type_send("测试标签",*self.input_loc)
-        sleep(0.5)
+        sleep(1)
         self.type_click(*self.addlabel_loc)
 
     def dimension_action8(self):
