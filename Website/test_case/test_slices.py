@@ -10,6 +10,7 @@ class SlicesTest(myunit.StartEnd):
         po1=SlicesPage(self.driver)
         return po1
 
+    @unittest.skip('skip this case')#跳过次测试用列
     def test_slices1(self):
         po=Choice(self.driver)
         po.loginchoice('admin','admin12345678')
@@ -20,6 +21,7 @@ class SlicesTest(myunit.StartEnd):
         function.insert_img(self.driver, "slices1单图保存成功.jpg")
         sleep(1)
 
+    @unittest.skip('skip this case')
     def test_slices2(self):
         self.slices().slices_action2()
         sleep(2)
@@ -28,6 +30,7 @@ class SlicesTest(myunit.StartEnd):
         self.driver.refresh()
         sleep(2)
 
+    @unittest.skip('skip this case')
     def test_slices3(self):
         self.slices().slices_action3()
         sleep(1)
@@ -36,12 +39,14 @@ class SlicesTest(myunit.StartEnd):
         self.driver.refresh()
         sleep(2)
 
+    @unittest.skip('skip this case')
     def test_slices4(self):
         self.slices().slices_action4()
         sleep(1)
         self.assertEqual(self.slices().type_allslices(),"订阅成功")
         function.insert_img(self.driver, "slices4单图订阅成功.jpg")
 
+    @unittest.skip('skip this case')
     def test_slices5(self):
         self.slices().slices_action5()
         sleep(2)

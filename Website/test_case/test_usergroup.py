@@ -5,6 +5,7 @@ from time import sleep
 from page_object.UsergroupPage import UsergroupPage
 
 class Test_Usergroup(myunit.StartEnd):
+    '''用户分群'''
     def usergroup(self):
         po1=UsergroupPage(self.driver)
         return po1

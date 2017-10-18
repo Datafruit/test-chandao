@@ -5,8 +5,8 @@ from page_object.AnalyticPage import *
 import unittest
 
 class Test_analytic(myunit.StartEnd):
+    '''多维分析'''
     def test_analytic1(self):
-        '''多维分析查询结果验证'''
         print("test_analytic start")
         po=Choice(self.driver)
         po.loginchoice('admin','admin12345678')

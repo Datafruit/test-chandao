@@ -3,7 +3,7 @@ from page_object.LoginPage import *
 from page_object.DashboardsPage import *
 import unittest
 class LoginTest(myunit.StartEnd):
-
+    '''登录验证'''
     def test_login3_normal(self):
         '''帐号和密码都正确'''
         po=LoginPage(self.driver)

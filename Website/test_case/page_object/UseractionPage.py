@@ -22,8 +22,6 @@ class UseractionPage(Page):
     all5_loc= (By.XPATH, '//*[text()="平均浏览时长"]')
     all6_loc = (By.XPATH, '//*[text()="人均浏览时长"]')
     all7_loc = (By.XPATH, '//*[text()="总次数"]')
-
-
     #时间框
     time_loc=(By.CSS_SELECTOR,"#main-content > div > div.scroll-content.always-display-scrollbar > div.pd2y.pd3x.bg-grey-f7 > div > div.mg0.bordert.dashed > div > div.ant-col-18 > div > div > div.mg2b.height32 > div")
     #添加一个条件
@@ -31,7 +29,6 @@ class UseractionPage(Page):
     find1_loc=(By.CSS_SELECTOR,".ant-select-lg.width120.inline.mg1r.ant-select.ant-select-enabled > div > div")
     choice1_loc=(By.XPATH,'//li[text()="客户端事件时间"]')
     find2_loc=(By.CSS_SELECTOR,".mg1b > div > div.time-picker-format.relative.iblock.width200.height32.itblock.line-height18")
-
     #查询按钮
     query_loc=(By.CSS_SELECTOR,".ant-btn.ant-btn-primary.width100")
     #保存按钮
@@ -40,7 +37,6 @@ class UseractionPage(Page):
     input_loc=(By.CSS_SELECTOR,".ant-input.width-100")
     #确认保存按钮
     savebutton2_loc = (By.CSS_SELECTOR, ".ant-btn.ant-btn-primary.width-100")
-
     #删除按钮
     delect_loc=(By.CSS_SELECTOR,"#main-content > div > div.scroll-content.always-display-scrollbar > div.pd2y.pd3x.bg-grey-f7 > div > div.ant-row > div.ant-col-6 > div > div > button:nth-child(2)")
     #删除确认按钮
@@ -56,135 +52,120 @@ class UseractionPage(Page):
     image3_loc = (By.CSS_SELECTOR, ".bordert.report-content > div:nth-child(4) > i")
 
 
-
-    def type_ueseraction_click(self,*loc):
-        self.find_element(*loc).click()
-
-    def type_useraction_send(self,send_values,*loc):
-        self.find_element(*loc).click()
-        sleep(0.5)
-        self.find_element(*loc).clear()
-        self.find_element(*loc).send_keys(send_values)
-
-    def type_ueseraction_click1(self,*loc):
-        for obj in self.driver.find_elements(*loc):
-            if obj.is_displayed():
-                obj.click()
-
     def useraction_action1(self):
-        self.type_ueseraction_click(*self.traffic_loc)
+        self.type_click(*self.traffic_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.useraction_loc)
+        self.type_click(*self.useraction_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.page_loc)
+        self.type_click(*self.page_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.page1_loc)
+        self.type_click(*self.page1_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.time_loc)
+        self.type_click(*self.time_loc)
         sleep(1)
         self.time_type("2017-07-10 00:00:00","2017-07-19 00:00:00")
         sleep(1)
-        self.type_ueseraction_click(*self.addnew_loc)
+        self.type_click(*self.addnew_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.find1_loc)
+        self.type_click(*self.find1_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.choice1_loc)
+        self.type_click(*self.choice1_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.find2_loc)
+        self.type_click(*self.find2_loc)
         sleep(1)
         self.time_type("2017-07-10 00:00:00", "2017-07-19 00:00:00")
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action2(self):
-        self.type_ueseraction_click(*self.all_loc)
+        self.type_click(*self.all_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.all1_loc)
+        self.type_click(*self.all1_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action3(self):
-        self.type_ueseraction_click(*self.all_loc)
+        self.type_click(*self.all_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.all2_loc)
+        self.type_click(*self.all2_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action4(self):
-        self.type_ueseraction_click(*self.all_loc)
+        self.type_click(*self.all_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.all3_loc)
+        self.type_click(*self.all3_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action5(self):
-        self.type_ueseraction_click(*self.all_loc)
+        self.type_click(*self.all_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.all4_loc)
+        self.type_click(*self.all4_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action6(self):
-        self.type_ueseraction_click(*self.all_loc)
+        self.type_click(*self.all_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.all5_loc)
+        self.type_click(*self.all5_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action7(self):
-        self.type_ueseraction_click(*self.all_loc)
+        self.type_click(*self.all_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.all6_loc)
+        self.type_click(*self.all6_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action8(self):
-        self.type_ueseraction_click(*self.all_loc)
+        self.type_click(*self.all_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.all7_loc)
+        self.type_click(*self.all7_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.event_loc)
+        self.type_click(*self.event_loc)
         sleep(1)
-        self.type_ueseraction_click1(*self.event1_loc)
+        self.type_click1(*self.event1_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.type_loc)
+        self.type_click(*self.type_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.type1_loc)
+        self.type_click(*self.type1_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.choice_loc)
+        self.type_click(*self.choice_loc)
         sleep(1)
-        self.type_ueseraction_click1(*self.choice2_loc)
+        self.type_click1(*self.choice2_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action9(self):
-        self.type_ueseraction_click(*self.image1_loc)
+        self.type_click(*self.image1_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action10(self):
-        self.type_ueseraction_click(*self.image2_loc)
+        self.type_click(*self.image2_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
     def useraction_action11(self):
-        self.type_ueseraction_click(*self.image3_loc)
+        self.type_click(*self.image3_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.query_loc)
+        self.type_click(*self.query_loc)
 
 
     def useraction_action12(self):
-        self.type_ueseraction_click(*self.savebutton1_loc)
+        self.type_click(*self.savebutton1_loc)
         sleep(1)
-        self.type_useraction_send("测试事件",*self.input_loc)
+        self.type_send("测试事件",*self.input_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.savebutton2_loc)
+        self.type_click(*self.savebutton2_loc)
 
 
     def useraction_action13(self):
-        self.type_ueseraction_click(*self.delect_loc)
+        self.type_click(*self.delect_loc)
         sleep(1)
-        self.type_ueseraction_click(*self.delectsure_loc)
+        self.type_click(*self.delectsure_loc)
 
 
 

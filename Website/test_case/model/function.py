@@ -23,7 +23,7 @@ def send_mail(latest_report):
     user = '941177402@qq.com'
     password = 'gjnamsnkufufbebg' #根据自己邮箱密码来设置
     sender = '941177402@qq.com'
-    receives = ['zhangchengcheng@sugo.io']
+    receives = 'zhangchengcheng@sugo.io'
     subject = 'Web Selenium 自动化测试报告'
 
 
