@@ -30,7 +30,7 @@ class Page():#页类基础
         return time.strftime("%Y-%m-%d %H:%M:%S")
 
     def wait(self):
-        WebDriverWait(self.driver, 5, 0.1).until(ec.presence_of_element_located((By.CSS_SELECTOR, ".ant-message-custom-content.ant-message-success>span")))
+        WebDriverWait(self.driver, 5, 0.3).until(ec.presence_of_element_located((By.CSS_SELECTOR, ".ant-message-custom-content.ant-message-success>span")))
 
 
 

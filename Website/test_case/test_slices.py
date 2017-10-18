@@ -5,105 +5,47 @@ from time import sleep,strftime
 from page_object.Choice import Choice
 
 class SlicesTest(myunit.StartEnd):
-    # def test_slices1(self):
-    #     '''新建单图'''
-    #     print("test_slices1 start")
-    #     po=Choice(self.driver)
-    #     po.loginchoice('admin','admin12345678')
-    #     sleep(2)
-    #     po1=SlicesPage(self.driver)
-    #     po1.slices_action1('测试单图')
-    #     sleep(2)
-    #     self.assertEqual(po1.type_titileslices(),"保存成功!查看单图")
-    #     function.insert_img(self.driver, "220_test_slices1.jpg")
-    #     print("test_slices1 end")
-    #
-    # def test_slices2(self):
-    #     '''分享单图'''
-    #     print("test_slices2 start")
-    #     po=Choice(self.driver)
-    #     po.loginchoice('admin','admin12345678')
-    #     sleep(2)
-    #     po1=SlicesPage(self.driver)
-    #     po1.slices_action2()
-    #     sleep(2)
-    #     self.assertEqual(po1.type_allslices(),"设置成功")
-    #     function.insert_img(self.driver, "220_test_slices2.jpg")
-    #     print("test_slices2 end")
-    #
-    # def test_slices3(self):
-    #     '''单图加入概览'''
-    #     print("test_slices3 start")
-    #     po=Choice(self.driver)
-    #     po.loginchoice('admin','admin12345678')
-    #     sleep(2)
-    #     po1=SlicesPage(self.driver)
-    #     po1.slices_action3()
-    #     sleep(2)
-    #     self.assertEqual(po1.type_allslices(),"加入概览成功")
-    #     function.insert_img(self.driver, "220_test_slices3.jpg")
-    #     print("test_slices2 end")
-    #
-    # def test_slices4(self):
-    #     '''单图订阅'''
-    #     print("test_slices4 start")
-    #     po=Choice(self.driver)
-    #     po.loginchoice('admin','admin12345678')
-    #     sleep(2)
-    #     po1=SlicesPage(self.driver)
-    #     po1.slices_action4()
-    #     sleep(2)
-    #     self.assertEqual(po1.type_allslices(),"订阅成功")
-    #     function.insert_img(self.driver, "220_test_slices4.jpg")
-    #     print("test_slices4 end")
-    #
-    # def test_slices5(self):
-    #     '''单图删除'''
-    #     print("test_slices5 start")
-    #     po=Choice(self.driver)
-    #     po.loginchoice('admin','admin12345678')
-    #     sleep(2)
-    #     po1=SlicesPage(self.driver)
-    #     po1.slices_action5()
-    #     sleep(2)
-    #     function.insert_img(self.driver, "220_test_slices5.jpg")
-    #     print("test_slices5 end")
+    '''单图'''
+    def slices(self):
+        po1=SlicesPage(self.driver)
+        return po1
 
-    def test_slices6(self):
-        '''集合版'''
-        print("test_slices6 start")
+    def test_slices1(self):
         po=Choice(self.driver)
         po.loginchoice('admin','admin12345678')
+        sleep(1)
+        self.slices().slices_action1('测试单图')
         sleep(2)
-        po1=SlicesPage(self.driver)
-        po1.slices_action1('测试单图')
-        sleep(2)
-        self.assertEqual(po1.type_titileslices(),"保存成功!查看单图")
-        function.insert_img(self.driver, "220_test_slices1.jpg")
+        self.assertEqual(self.slices().type_titileslices(),"保存成功!查看单图")
+        function.insert_img(self.driver, "slices1单图保存成功.jpg")
         sleep(1)
 
-        po1.slices_action2()
+    def test_slices2(self):
+        self.slices().slices_action2()
         sleep(2)
-        self.assertEqual(po1.type_allslices(),"设置成功")
-        function.insert_img(self.driver, "220_test_slices2.jpg")
-
+        self.assertEqual(self.slices().type_allslices(),"设置成功")
+        function.insert_img(self.driver, "slices2单图授权成功.jpg")
         self.driver.refresh()
         sleep(2)
-        po1.slices_action3()
-        sleep(1)
-        self.assertEqual(po1.type_allslices(),"加入概览成功")
-        function.insert_img(self.driver, "220_test_slices3.jpg")
 
+    def test_slices3(self):
+        self.slices().slices_action3()
+        sleep(1)
+        self.assertEqual(self.slices().type_allslices(),"加入概览成功")
+        function.insert_img(self.driver, "slices3单图加入概览成功.jpg")
         self.driver.refresh()
         sleep(2)
-        po1.slices_action4()
-        sleep(1)
-        self.assertEqual(po1.type_allslices(),"订阅成功")
-        function.insert_img(self.driver, "220_test_slices4.jpg")
 
-        po1.slices_action5()
+    def test_slices4(self):
+        self.slices().slices_action4()
+        sleep(1)
+        self.assertEqual(self.slices().type_allslices(),"订阅成功")
+        function.insert_img(self.driver, "slices4单图订阅成功.jpg")
+
+    def test_slices5(self):
+        self.slices().slices_action5()
         sleep(2)
-        function.insert_img(self.driver, "220_test_slices5.jpg")
+        function.insert_img(self.driver, "slices5单图删除成功.jpg")
         print("test_slices5 end")
 
 

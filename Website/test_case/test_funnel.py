@@ -9,6 +9,7 @@ class FunnelTest(myunit.StartEnd):
     def funnel(self):
         po1=FunnelPage(self.driver)
         return po1
+
     def test_funnel1(self):
         print("test_retention start")
         po=Choice(self.driver)
@@ -32,7 +33,7 @@ class FunnelTest(myunit.StartEnd):
         sleep(1)
         self.funnel().funnel_action3()
         # self.funnel().wait()
-        sleep(1)
+        sleep(0.5)
         self.assertEqual(self.funnel().type_assert1(),"保存成功")
         function.insert_img(self.driver,"funnel3漏斗更新成功.jpg")
         sleep(1)

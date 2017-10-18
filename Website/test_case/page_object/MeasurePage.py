@@ -1,6 +1,5 @@
 from page_object.DimensionPage import *
 
-
 class MeasurePage(Page):
     #数据管理
     project_loc=(By.XPATH,'//*[text()="数据管理"]')

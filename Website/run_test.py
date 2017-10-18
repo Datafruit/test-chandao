@@ -9,7 +9,7 @@ report_dir='./test_report'
 test_dir='./test_case'
 
 print("start run test case")
-discover=unittest.defaultTestLoader.discover(test_dir,pattern="test_funnel.py")
+discover=unittest.defaultTestLoader.discover(test_dir,pattern="test_retention.py")
 
 now=time.strftime("%Y-%m-%d %H_%M_%S")
 report_name=report_dir+'/'+now+'result.html'

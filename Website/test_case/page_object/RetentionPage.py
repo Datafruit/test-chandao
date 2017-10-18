@@ -16,17 +16,6 @@ class RetentionPage(Page):
     input1_loc=(By.CSS_SELECTOR,".mg1b > div:nth-child(1) > div.ant-select-lg.width120.inline.mg1r.ant-select.ant-select-enabled > div > div")
     find1_loc=(By.XPATH,'//*[text()="客户端事件时间"]')
     time1_loc=(By.CSS_SELECTOR,".mg1b > div:nth-child(1) > div.time-picker-format.relative.iblock.width200.height32.itblock.line-height18 > span")
-    #左边时间框
-    # time2_loc=(By.CSS_SELECTOR,'.ant-calendar-picker-input.ant-input[placeholder="请选择日期"]')
-    # #点击获取光标
-    # time3_loc=(By.CSS_SELECTOR,".ant-calendar-input")
-    # #小确认按钮
-    # timeallsureanalytic_loc = (By.CSS_SELECTOR, ".ant-calendar-ok-btn")
-    # #右边时间框
-    # time4_loc=(By.CSS_SELECTOR,'.ant-calendar-picker-input.ant-input[placeholder="Start"]')
-    # #大确认框
-    # timesureanalytic_loc=(By.CSS_SELECTOR,".ant-btn.ant-btn-primary.iblock.mg1r")
-    #第二个条件框
     input2_loc = (By.CSS_SELECTOR, ".mg1b > div:nth-child(2) > div.ant-select-lg.width120.inline.mg1r.ant-select.ant-select-enabled > div > div")
     #查找页面名称
     find2_loc=(By.XPATH,"//*[text()='浏览器名称']")
@@ -66,179 +55,91 @@ class RetentionPage(Page):
     #删除确认
     deletesure_loc=(By.CSS_SELECTOR,".ant-popover-buttons > button.ant-btn.ant-btn-primary.ant-btn-sm > span")
 
-    def type_traffic(self):
-        self.find_element(*self.traffic_loc).click()
-
-    def type_retention1(self):
-        self.find_element(*self.retention1_loc).click()
-
-    def type_addchoice(self):
-        self.find_element(*self.addchoice_loc).click()
-
-    def type_check(self):
-        self.find_element(*self.check_loc).click()
-
-    def type_input1(self):
-        self.find_element(*self.input1_loc).click()
-
-    def type_find1(self):
-        self.find_element(*self.find1_loc).click()
-
-    def type_time1(self):
-        self.find_element(*self.time1_loc).click()
-
-    # def type_time2(self):
-    #     self.find_element(*self.time2_loc).click()
-    #
-    # def type_time3(self,time):
-    #     self.find_element(*self.time3_loc).click()
-    #     self.find_element(*self.time3_loc).clear()
-    #     self.find_element(*self.time3_loc).send_keys(time)
-    #     self.find_element(*self.timeallsureanalytic_loc).click()
-    #
-    # def type_time4(self):
-    #     self.find_element(*self.time4_loc).click()
-    #
-    # def type_timesureanalytic(self):
-    #     self.find_element(*self.timesureanalytic_loc).click()
-
-    def type_input2(self):
-        self.find_element(*self.input2_loc).click()
-
-    def type_find2(self):
-        self.find_element(*self.find2_loc).click()
-
-    def type_input21(self):
-        self.find_element(*self.input21_loc).click()
-
-
-    def type_find3(self):
-        self.find_element(*self.find3_loc).click()
-
-
-    def type_surebutton(self):
-        self.find_element(*self.surebutton_loc).click()
-
-    def type_input3(self):
-        self.find_element(*self.input3_loc).click()
-
-    def type_find4(self):
-        self.find_element(*self.find4_loc).click()
-
-    def type_input31(self,value):
-        self.find_element(*self.input31_loc).click()
-        self.find_element(*self.input31_loc).send_keys(value)
-
-    def type_input32(self,value):
-        self.find_element(*self.input32_loc).click()
-        self.find_element(*self.input32_loc).send_keys(value)
-
-    def type_savebutton1(self):
-        self.find_element(*self.savebutton1_loc).click()
-
-    def type_inputname(self):
-        self.find_element(*self.inputname_loc).click()
-
-    def type_savebutton2(self):
-        self.find_element(*self.savebutton2_loc).click()
-
-    def type_maintime(self):
-        self.find_element(*self.maintime_loc).click()
-
-    def type_retention(self,*loc):
-        for abc in self.driver.find_elements(*loc):
-            if abc.is_displayed():
-                abc.click()
-
-    def type_retention_send(self,send_values,*loc):
-        self.find_element(*loc).send_keys(send_values)
-
-
 
     def retention_action1(self,time1,time2):
-        self.type_traffic()
+        self.type_click(*self.traffic_loc)
         sleep(1)
-        self.type_retention1()
-        sleep(2)
-        self.type_maintime()
-        sleep(0.5)
+        self.type_click(*self.retention1_loc)
+        sleep(1)
+        self.type_click(*self.maintime_loc)
+        sleep(1)
+        self.time_type(time1, time2)
+        sleep(1)
+        self.type_click(*self.addchoice_loc)
+        sleep(1)
+        self.type_click(*self.input1_loc)
+        sleep(1)
+        self.type_click1(*self.find1_loc)
+        sleep(1)
+        self.type_click(*self.time1_loc)
+        sleep(1)
         self.time_type(time1,time2)
         sleep(1)
-        self.type_addchoice()
-        sleep(0.5)
-        self.type_input1()
-        sleep(2)
-        self.type_find1()
-        self.type_time1()
-        sleep(1)
-        self.time_type(time1,time2)
-        sleep(1)
-        self.type_check()
+        self.type_click(*self.check_loc)
 
     def retention_action2(self):
-        self.type_retention(*self.retention2_loc)
+        self.type_click(*self.retention2_loc)
         sleep(1)
-        self.type_retention(*self.input4_loc)
+        self.type_click(*self.input4_loc)
         sleep(1.5)
-        self.type_retention(*self.find5_loc)
+        self.type_click1(*self.find5_loc)
         sleep(1)
-        self.type_retention(*self.input5_loc)
+        self.type_click(*self.input5_loc)
         sleep(1.5)
-        self.type_retention(*self.find51_loc)
+        self.type_click1(*self.find51_loc)
         sleep(1)
-        self.type_retention(*self.addchoice_loc)
+        self.type_click(*self.addchoice_loc)
         sleep(0.5)
-        self.type_retention(*self.input2_loc)
+        self.type_click(*self.input2_loc)
         sleep(0.5)
-        self.type_retention(*self.find2_loc)
+        self.type_click1(*self.find2_loc)
         sleep(0.5)
-        self.type_retention(*self.input21_loc)
+        self.type_click(*self.input21_loc)
         sleep(1)
-        self.type_retention(*self.find3_loc)
+        self.type_click1(*self.find3_loc)
         sleep(0.5)
-        self.type_retention(*self.surebutton_loc)
+        self.type_click(*self.surebutton_loc)
         sleep(1)
-        self.type_retention(*self.check_loc)
+        self.type_click(*self.check_loc)
 
     def retention_action3(self):
-        self.type_retention(*self.retention3_loc)
+        self.type_click(*self.retention3_loc)
         sleep(0.5)
-        self.type_retention(*self.input6_loc)
+        self.type_click(*self.input6_loc)
         sleep(0.5)
-        self.type_retention(*self.find6_loc)
+        self.type_click1(*self.find6_loc)
         sleep(1)
-        self.type_retention(*self.addchoice_loc)
+        self.type_click(*self.addchoice_loc)
         sleep(0.5)
-        self.type_retention(*self.input3_loc)
+        self.type_click(*self.input3_loc)
         sleep(0.5)
-        self.type_retention(*self.find4_loc)
+        self.type_click1(*self.find4_loc)
         sleep(1)
-        self.type_retention(*self.input7_loc)
+        self.type_click(*self.input7_loc)
         sleep(0.5)
-        self.type_retention(*self.find7_loc)
+        self.type_click1(*self.find7_loc)
         sleep(1)
-        self.type_retention(*self.input31_loc)
+        self.type_click(*self.input31_loc)
         sleep(0.5)
-        self.type_retention_send('2',*self.input31_loc)
+        self.type_send('2',*self.input31_loc)
         sleep(0.5)
-        self.type_retention(*self.input32_loc)
+        self.type_click(*self.input32_loc)
         sleep(0.5)
-        self.type_retention_send('10',*self.input32_loc)
+        self.type_send('10',*self.input32_loc)
         sleep(1)
-        self.type_retention(*self.check_loc)
+        self.type_click(*self.check_loc)
 
     def retention_action4(self):
-        self.type_retention(*self.savebutton1_loc)
+        self.type_click(*self.savebutton1_loc)
         sleep(0.5)
-        self.type_retention(*self.inputname_loc)
-        self.type_retention_send('测试留存',*self.inputname_loc)
+        self.type_send('测试留存%s'%self.nowtime(),*self.inputname_loc)
         sleep(0.5)
-        self.type_retention(*self.savebutton2_loc)
+        self.type_click(*self.savebutton2_loc)
 
     def retention_action5(self):
-        self.type_retention(*self.delete_loc)
+        self.type_click(*self.delete_loc)
         sleep(0.5)
-        self.type_retention(*self.deletesure_loc)
+        self.type_click(*self.deletesure_loc)
 
     assert1_loc=(By.CSS_SELECTOR,".ant-table-row.ant-table-row-level-0 > td.grid > div")
     def type_assert1(self):

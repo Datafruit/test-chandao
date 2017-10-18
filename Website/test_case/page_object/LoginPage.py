@@ -9,22 +9,12 @@ class LoginPage(Page):
     submit_loc=(By.XPATH,"//button[@type='submit']")
     overview_loc=(By.XPATH, ".//*[@id='main-header']/span[1]/span/a[1]")
 
-    def type_username(self,username):
-        self.find_element(*self.username_loc).clear()
-        self.find_element(*self.username_loc).send_keys(username)
-    def type_password(self,password):
-        self.find_element(*self.password_loc).clear()
-        self.find_element(*self.password_loc).send_keys(password)
-    def type_submit(self):
-        self.find_element(*self.submit_loc).click()
-
-
     def Login_action(self,username,password):
         self.open()
-        self.type_username(username)
-        self.type_password(password)
-        self.type_submit()
-        sleep(2)
+        self.type_send(username,*self.username_loc)
+        self.type_send(password,*self.password_loc)
+        self.type_click(*self.submit_loc)
+        sleep(1)
 
     loginPass_loc=(By.LINK_TEXT,'多维分析')
     loginFail_loc=(By.LINK_TEXT,'找回密码')

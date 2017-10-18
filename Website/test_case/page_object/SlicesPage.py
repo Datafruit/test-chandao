@@ -39,122 +39,59 @@ class SlicesPage(Page):
     #确认保存
     suresaveslices_loc=(By.CSS_SELECTOR,".ant-btn.ant-btn-primary.width-100")
 
-    def type_overview(self):
-        self.find_element(*self.overview_loc).click()
-
-    def type_slices(self):
-        self.find_element(*self.slices_loc).click()
-    def type_findslices(self):
-        findadress=self.find_element(*self.findslices_loc)
-        ActionChains(self.driver).move_to_element(findadress).perform()
-
-    def type_shareslices(self):
-        self.find_element(*self.shareslices_loc).click()
-
-    def type_ghostslices(self):
-        self.find_element(*self.ghostslices_loc).click()
-
-    def type_successslice(self):
-        self.find_element(*self.successslice_loc).click()
-
-    def type_pushpinslices(self):
-        self.find_element(*self.pushpinslices_loc).click()
-
-    def type_starslices(self):
-        self.find_element(*self.starslices_loc).click()
-
-    def type_crossslices(self):
-        self.find_element(*self.crossslices_loc).click()
-
-    def type_surecrossslices(self):
-        self.find_element(*self.surecrossslices_loc).click()
-
-    def type_newslices(self):
-        self.find_element(*self.newslices_loc).click()
-
-    def type_addwslices(self):
-        self.find_element(*self.addwslices_loc).click()
-
-    def type_addchoiceslices(self):
-        self.find_element(*self.addchoiceslices_loc).click()
-
-    def type_doslices(self):
-        self.find_element(*self.doslices_loc).click()
-
-    def type_saveslices(self):
-        self.find_element(*self.saveslices_loc).click()
-
-    def type_nameslices(self,name):
-        # self.find_element(*self.nameslices_loc).clear()
-        self.find_element(*self.nameslices_loc).send_keys(name)
-
-    def type_suresaveslices(self):
-        self.find_element(*self.suresaveslices_loc).click()
-
     #新建单图步骤
     def slices_action1(self,name):
-        self.type_overview()
-        sleep(2)
-        self.type_slices()
-        sleep(2)
-        self.type_newslices()
-        sleep(3)
-        self.type_addwslices()
-        self.type_addchoiceslices()
+        self.type_click(*self.overview_loc)
         sleep(1)
-        self.type_doslices()
-        sleep(2)
-        self.type_saveslices()
+        self.type_click(*self.slices_loc)
         sleep(1)
-        self.type_nameslices(name)
+        self.type_click(*self.newslices_loc)
         sleep(1)
-        self.type_suresaveslices()
+        self.type_click(*self.addwslices_loc)
+        sleep(1)
+        self.type_click(*self.addchoiceslices_loc)
+        sleep(1)
+        self.type_click(*self.doslices_loc)
+        sleep(1)
+        self.type_click(*self.saveslices_loc)
+        sleep(1)
+        self.type_send(name,*self.nameslices_loc)
+        sleep(1)
+        self.type_click(*self.suresaveslices_loc)
 
     #分享单图
     def slices_action2(self):
-        self.type_overview()
-        sleep(2)
-        self.type_slices()
-        sleep(2)
+        self.type_click(*self.overview_loc)
+        sleep(1)
+        self.type_click(*self.slices_loc)
+        sleep(1)
         self.type_findslices()
         sleep(1)
-        self.type_shareslices()
+        self.type_click(*self.shareslices_loc)
         sleep(1)
-        self.type_ghostslices()
+        self.type_click(*self.ghostslices_loc)
         sleep(1)
-        self.type_successslice()
+        self.type_click(*self.successslice_loc)
 
     #单图加入概览
     def slices_action3(self):
-        # self.type_overview()
-        # sleep(2)
-        # self.type_slices()
-        # sleep(2)
         self.type_findslices()
         sleep(1)
-        self.type_pushpinslices()
+        self.type_click(*self.pushpinslices_loc)
 
     #单图订阅
     def slices_action4(self):
-        # self.type_overview()
-        # sleep(2)
-        # self.type_slices()
-        # sleep(2)
         self.type_findslices()
         sleep(1)
-        self.type_starslices()
+        self.type_click(*self.starslices_loc)
 
     #单图删除
     def slices_action5(self):
-        # self.type_overview()
-        # sleep(2)
-        # self.type_slices()
-        # sleep(2)
         self.type_findslices()
         sleep(1)
-        self.type_crossslices()
+        self.type_click(*self.crossslices_loc)
         sleep(1)
-        self.type_surecrossslices()
+        self.type_click(*self.surecrossslices_loc)
 
 
 
