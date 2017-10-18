@@ -38,8 +38,8 @@ class DashboardsPage(Page):
 
 #新增看板
     def dashboards_action1(self):
-        # self.type_click(*self.overview_loc)
-        # sleep(1)
+        self.type_click(*self.overview_loc)
+        sleep(1)
         self.type_click(*self.dashboards_loc)
         sleep(1)
         self.type_click(*self.newdashboards_loc)
@@ -66,9 +66,9 @@ class DashboardsPage(Page):
         sleep(1)
         self.type_click(*self.sharebuttondashboards_loc)
 
-# #订阅看板
-#     def dashboards_action4(self):
-#         self.type_click(*self.spandashboards_loc)
+#订阅看板
+    def dashboards_action4(self):
+        self.type_click(*self.spandashboards_loc)
 
 #删除看板
     def dashboards_action5(self):

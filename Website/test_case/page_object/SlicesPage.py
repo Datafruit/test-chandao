@@ -38,9 +38,18 @@ class SlicesPage(Page):
     nameslices_loc=(By.CSS_SELECTOR,".ant-input.width-100")
     #确认保存
     suresaveslices_loc=(By.CSS_SELECTOR,".ant-btn.ant-btn-primary.width-100")
+    # def nametime(self):
+    #     name="测试单图%s"%self.nowtime()
+    #     return name
+
+    def type_findslices(self):
+        finds=self.find_element(By.LINK_TEXT,nowname)
+        ActionChains(self.driver).move_to_element(finds).perform()
 
     #新建单图步骤
-    def slices_action1(self,name):
+    def slices_action1(self):
+        nowname ="测试单图%s"%self.nowtime()
+        global nowname
         self.type_click(*self.overview_loc)
         sleep(1)
         self.type_click(*self.slices_loc)
@@ -55,9 +64,10 @@ class SlicesPage(Page):
         sleep(1)
         self.type_click(*self.saveslices_loc)
         sleep(1)
-        self.type_send(name,*self.nameslices_loc)
+        self.type_send(nowname,*self.nameslices_loc)
         sleep(1)
         self.type_click(*self.suresaveslices_loc)
+        return nowname
 
     #分享单图
     def slices_action2(self):

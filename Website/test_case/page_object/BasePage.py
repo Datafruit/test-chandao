@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as ec
 class Page():#页类基础
     def __init__(self,driver):#初始化
         self.driver=driver
-        self.base_url="http://192.168.0.220:8000"
+        self.base_url="http://192.168.0.220:8000/login"
         self.timeout=10
         sleep(1)
 #打开不同子页面git
