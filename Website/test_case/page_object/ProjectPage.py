@@ -1,5 +1,6 @@
 from page_object.BasePage import *
 from selenium.webdriver.common.action_chains import ActionChains
+
 class ProjectPage(Page):
     #数据管理
     project_loc=(By.XPATH,'//*[text()="数据管理"]')

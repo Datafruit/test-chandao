@@ -1,7 +1,5 @@
-from time import sleep
 from page_object.BasePage import *
 from selenium.webdriver.common.by import By
-from page_object.SlicesPage import SlicesPage
 
 class AnalyticPage(Page):
     #多维分析

@@ -83,7 +83,6 @@ class UsergroupPage(Page):
         sleep(1)
         self.type_click1(*self.savebutton_loc)
 
-
     def usergroup_action2(self):
         self.type_click(*self.useradd2_loc)
         sleep(1)

@@ -1,4 +1,3 @@
-from time import sleep
 from page_object.BasePage import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
@@ -38,9 +37,6 @@ class SlicesPage(Page):
     nameslices_loc=(By.CSS_SELECTOR,".ant-input.width-100")
     #确认保存
     suresaveslices_loc=(By.CSS_SELECTOR,".ant-btn.ant-btn-primary.width-100")
-    # def nametime(self):
-    #     name="测试单图%s"%self.nowtime()
-    #     return name
 
     def type_findslices(self):
         finds=self.find_element(By.LINK_TEXT,nowname)

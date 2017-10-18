@@ -168,8 +168,6 @@ class UseractionPage(Page):
         self.type_click(*self.delectsure_loc)
 
 
-
-
     assert1_loc=(By.CSS_SELECTOR,".elli.itblock")
     def type_assert1(self):
         return self.find_element(*self.assert1_loc).get_attribute("title")
