@@ -12,16 +12,6 @@ class UsergroupPage(Page):
     groupname_loc=(By.CSS_SELECTOR,".ant-input.ant-input-lg")
     #时间框
     time1_loc=(By.CSS_SELECTOR,".ug-form-options > div:nth-child(1) > div.ant-col-18.ant-form-item-control-wrapper > div > div")
-    #左边时间框
-    time2_loc=(By.CSS_SELECTOR,'.ant-calendar-picker-input.ant-input[placeholder="请选择日期"]')
-    #点击获取光标
-    time3_loc=(By.CSS_SELECTOR,".ant-calendar-input")
-    #小确认按钮
-    timeallsureanalytic_loc = (By.CSS_SELECTOR, ".ant-calendar-ok-btn")
-    #右边时间框
-    time4_loc=(By.CSS_SELECTOR,'.ant-calendar-picker-input.ant-input[placeholder="Start"]')
-    #大确认框
-    timesureanalytic_loc=(By.CSS_SELECTOR,".ant-btn.ant-btn-primary.iblock.mg1r")
     #用户行为筛选
     uesradd1_loc=(By.CSS_SELECTOR,".ug-form-options > div:nth-child(2) > div.ant-col-18.ant-form-item-control-wrapper > div > div.add-button-wrap > span")
     #页面名称
@@ -49,9 +39,9 @@ class UsergroupPage(Page):
     #查找广东省
     find4_loc = (By.XPATH, "//*[text()='广东省']")
     #保存按钮
-    savebutton_loc=(By.CSS_SELECTOR,".ant-btn.ant-btn-success.ant-btn-lg")
+    savebutton_loc=(By.CSS_SELECTOR,"#main-content > div > div > div.scroll-content-100.always-display-scrollbar > div > div > div > div.ug-info.overscoll-y.pd3b > div > form > div:nth-child(6) > div > div > button")
     #更新按钮
-    update_loc=(By.CSS_SELECTOR,".ant-form-item-control> button:nth-child(2) > span")
+    update_loc=(By.CSS_SELECTOR,".ant-form-item-control> button:nth-child(3) > span")
     #跳转路径分析
     path_loc=(By.XPATH,'//*[@id="main-content"]/div/div/div[2]/div/div/div/div/div/div/div/div[2]/div[2]/div[2]/a[1]')
     #跳转留存分析
@@ -69,189 +59,79 @@ class UsergroupPage(Page):
     #删除确定按钮
     deletesuer_loc=(By.CSS_SELECTOR,'.ant-btn.ant-btn-primary.ant-btn-sm')
 
-    def type_traffic(self):
-        self.find_element(*self.traffic_loc).click()
-
-    def type_usergroup(self):
-        self.find_element(*self.usergroup_loc).click()
-
-    def type_addgroup(self):
-        self.find_element(*self.addgroup_loc).click()
-
-    def type_groupname(self,name):
-        self.find_element(*self.groupname_loc).send_keys(name)
-
-    def type_time1(self):
-        self.find_element(*self.time1_loc).click()
-
-    def type_time2(self):
-        self.find_element(*self.time2_loc).click()
-
-    def type_time3(self,time):
-        self.find_element(*self.time3_loc).click()
-        self.find_element(*self.time3_loc).clear()
-        self.find_element(*self.time3_loc).send_keys(time)
-        self.find_element(*self.timeallsureanalytic_loc).click()
-
-    def type_time4(self):
-        self.find_element(*self.time4_loc).click()
-
-    def type_timesureanalytic(self):
-        self.find_element(*self.timesureanalytic_loc).click()
-
-    def type_uesradd1(self):
-        self.find_element(*self.uesradd1_loc).click()
-
-    def type_useradd2(self):
-        self.find_element(*self.useradd2_loc).click()
-
-    def type_useradd3(self):
-        self.find_element(*self.useradd3_loc).click()
-
-    def type_pagename1(self):
-        self.find_element(*self.pagename1_loc).click()
-
-    def type_pagename2(self):
-        self.find_element(*self.pagename2_loc).click()
-
-    def type_pagename3(self):
-        self.find_element(*self.pagename3_loc).click()
-
-    def type_find1(self):
-        self.find_element(*self.find1_loc).click()
-
-    def type_inputnumble1(self):
-        self.find_element(*self.inputnumble1_loc).click()
-        self.find_element(*self.inputnumble1_loc).send_keys("10")
-
-    def type_find2(self):
-        self.find_element(*self.find2_loc).click()
-
-    def type_inputnumble2(self):
-        self.find_element(*self.inputnumble2_loc).send_keys("20")
-
-    def type_find3(self):
-        self.find_element(*self.find3_loc).click()
-
-    def type_inputnumble3(self):
-        self.find_element(*self.inputnumble3_loc).click()
-
-    def type_find4(self):
-        self.find_element(*self.find4_loc).click()
-
-    def type_savebutton(self):
-        self.find_element(*self.savebutton_loc).click()
-
-    def type_update(self):
-        self.find_element(*self.update_loc).click()
-
-    def type_choice1(self):
-        self.find_element(*self.path_loc).click()
-
-    def type_choice2(self):
-        self.find_element(*self.retention_loc).click()
-
-    def type_choice3(self):
-        self.find_element(*self.funnel_loc).click()
-
-    def type_choice4(self):
-        self.find_element(*self.action_loc).click()
-
-    def type_seeuser(self):
-        self.find_element(*self.seeuser_loc).click()
-
-    def type_updateuser_loc(self):
-        self.find_element(*self.updateuser_loc).click()
-
-    def type_deleteuser_loc(self):
-        self.find_element(*self.deleteuser_loc).click()
-
-    def type_deletesuer_loc(self):
-        self.find_element(*self.deletesuer_loc).click()
-
-
-
-
-
     #新建分群
-    def usergroup_action1(self,name,time1,time2):
-        self.type_traffic()
+    def usergroup_action1(self):
+        self.type_click(*self.traffic_loc)
         sleep(1)
-        self.type_usergroup()
-        sleep(2)
-        self.type_addgroup()
-        sleep(2)
-        self.type_groupname(name)
-        sleep(2)
-        self.type_time1()
+        self.type_click(*self.usergroup_loc)
         sleep(1)
-        self.type_time2()
+        self.type_click(*self.addgroup_loc)
         sleep(1)
-        self.type_time3(time1)
+        self.type_send("测试分群%s"%self.nowtime(),*self.groupname_loc)
         sleep(1)
-        self.type_time4()
+        self.type_click(*self.time1_loc)
         sleep(1)
-        self.type_time3(time2)
+        self.time_type("2017-07-15 00:00:00","2017-07-18 00:00:00")
         sleep(1)
-        self.type_timesureanalytic()
+        self.type_click(*self.uesradd1_loc)
         sleep(1)
-        self.type_uesradd1()
-        sleep(0.5)
-        self.type_pagename1()
-        sleep(2)
-        self.type_find1()
+        self.type_click(*self.pagename1_loc)
         sleep(1)
-        self.type_inputnumble1()
+        self.type_click(*self.find1_loc)
         sleep(1)
-        self.type_useradd2()
-        sleep(0.5)
-        self.type_pagename2()
-        sleep(2)
-        self.type_find2()
+        self.type_send("10",*self.inputnumble1_loc)
         sleep(1)
-        self.type_inputnumble2()
-        sleep(0.5)
-        self.type_savebutton()
+        self.type_click1(*self.savebutton_loc)
+
 
     def usergroup_action2(self):
-        self.type_useradd3()
-        sleep(0.5)
-        self.type_pagename3()
+        self.type_click(*self.useradd2_loc)
         sleep(1)
-        self.type_find3()
-        sleep(1)
-        self.type_inputnumble3()
+        self.type_click(*self.pagename2_loc)
         sleep(2)
-        self.type_find4()
-        sleep(0.5)
-        self.type_update()
+        self.type_click(*self.find2_loc)
+        sleep(2)
+        self.type_send("10",*self.inputnumble2_loc)
+        sleep(1)
+        self.type_click(*self.useradd3_loc)
+        sleep(1)
+        self.type_click(*self.pagename3_loc)
+        sleep(1)
+        self.type_click(*self.find3_loc)
+        sleep(1)
+        self.type_click(*self.inputnumble3_loc)
+        sleep(1)
+        self.type_click(*self.find4_loc)
+        sleep(1)
+        self.type_click(*self.update_loc)
 
     def usergroup_action3(self):
-        self.type_choice1()
+        self.type_click(*self.path_loc)
 
     def usergroup_action4(self):
-        self.type_choice2()
+        self.type_click(*self.retention_loc)
 
     def usergroup_action5(self):
-        self.type_choice3()
+        self.type_click(*self.funnel_loc)
 
     def usergroup_action6(self):
-        self.type_traffic()
+        self.type_click(*self.traffic_loc)
         sleep(1)
-        self.type_usergroup()
-        sleep(2)
-        self.type_choice4()
+        self.type_click(*self.usergroup_loc)
+        sleep(1)
+        self.type_click(*self.action_loc)
 
     def usergroup_action7(self):
-        self.type_seeuser()
+        self.type_click(*self.seeuser_loc)
 
     def usergroup_action8(self):
-        self.type_updateuser_loc()
+        self.type_click(*self.updateuser_loc)
 
     def usergroup_action9(self):
-        self.type_deleteuser_loc()
+        self.type_click(*self.deleteuser_loc)
         sleep(1)
-        self.type_deletesuer_loc()
+        self.type_click(*self.deletesuer_loc)
+
 
 
     message_loc=(By.CSS_SELECTOR,".ant-message-custom-content.ant-message-success>span")
@@ -282,7 +162,7 @@ class UsergroupPage(Page):
         return self.find_element(*self.choice41_loc).text
 
     seeuser1_loc=(By.CSS_SELECTOR,"#main-content > div > div.nav-bar > div > div.itblock > div:nth-child(1) > div > span > span.mw200.itblock.elli > a > b")
-    updateuser1_loc=(By.CSS_SELECTOR,'.ug-info > div > div > div > div > button:nth-child(2) > span')
+    updateuser1_loc=(By.CSS_SELECTOR,'#main-content > div > div > div.scroll-content-100.always-display-scrollbar > div > div > div > div.ug-info.overscoll-y.pd3b > div > div > div > div > button:nth-child(3)')
 
     def type_seeuser1(self):
         return self.find_element(*self.seeuser1_loc).text

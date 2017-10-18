@@ -1,4 +1,5 @@
 import unittest
+from function import *
 from BSTestRunner import BSTestRunner
 import time
 
@@ -8,16 +9,16 @@ report_dir='./test_report'
 test_dir='./test_case'
 
 print("start run test case")
-discover=unittest.defaultTestLoader.discover(test_dir,pattern="test*.py")
+discover=unittest.defaultTestLoader.discover(test_dir,pattern="test_funnel.py")
 
-now=time.strftime("%Y-%m-%d %H:%M:%S")
+now=time.strftime("%Y-%m-%d %H_%M_%S")
 report_name=report_dir+'/'+now+'result.html'
 
 print("start write report..")
-with open(report_name,'wb') as fa:
-    runner=BSTestRunner(stream=fa,title="Test report",description="220前端的测试报告")
+with open(report_name,'wb') as f:
+    runner=BSTestRunner(stream=f,title="Test report",description="220前端的测试报告")
     runner.run(discover)
-    fa.closed
+    f.closed
 print("end")
 # print("find lastest report")
 # latest_report=latest_report(report_dir)

@@ -1,6 +1,8 @@
 from time import sleep
 from selenium.webdriver.common.by import By
 import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 
 class Page():#页类基础
     def __init__(self,driver):#初始化
@@ -26,6 +28,10 @@ class Page():#页类基础
 #实时时间封装
     def nowtime(self):
         return time.strftime("%Y-%m-%d %H:%M:%S")
+
+    def wait(self):
+        WebDriverWait(self.driver, 5, 0.1).until(ec.presence_of_element_located((By.CSS_SELECTOR, ".ant-message-custom-content.ant-message-success>span")))
+
 
 
     #时间控件封装

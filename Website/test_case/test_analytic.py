@@ -12,12 +12,12 @@ class Test_analytic(myunit.StartEnd):
         po.loginchoice('admin','admin12345678')
         sleep(2)
         po1=AnalyticPage(self.driver)
-        po1.analytic_action1('2017-07-16 00:00:00','2017-07-17 00:00:00')
+        po1.analytic_action1()
         sleep(2)
 
         self.assertEqual(po1.type_assert1(),"手机平台首页")
         self.assertEqual(po1.type_assert2(),"7,874")
-        function.insert_img(self.driver,'220_test_anaalytic.jpg')
+        function.insert_img(self.driver,'anaalytic多维分析.jpg')
         print("test_analytic end")
 
 

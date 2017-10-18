@@ -10,7 +10,7 @@ class LoginandChoice(myunit.StartEnd):
         po.Login_action('admin','admin12345678')
         po1=Choice(self.driver)
         po1.choice()
-        sleep(3)
+        sleep(2)
 
 
 

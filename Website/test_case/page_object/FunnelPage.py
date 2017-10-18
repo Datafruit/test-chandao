@@ -22,10 +22,10 @@ class FunnelPage(Page):
     type_loc=(By.CSS_SELECTOR,"#main-content > div > div.pd3x.comparableFunnelPanel > div > div > div.funnelLayerEditor.last > div > div:nth-child(1) > div > div:nth-child(2) > div > div:nth-child(3) > div > div.width-100.ant-select.ant-select-enabled > div > div")
     #获取浏览
     see1_loc=(By.XPATH,"//*[text()='浏览']")
-    see2_loc = (By.XPATH, "//*[text()='中兴品牌列表页']")
-    see3_loc = (By.XPATH, "//*[text()='手机平台首页']")
-    see4_loc = (By.XPATH, "//*[text()='华为品牌列表页']")
-    see5_loc = (By.XPATH, "//*[text()='筛选荣耀V9']")
+    see2_loc = (By.XPATH, "//li[text()='中兴品牌列表页']")
+    see3_loc = (By.XPATH, "//li[text()='手机平台首页']")
+    see4_loc = (By.XPATH, "//li[text()='华为品牌列表页']")
+    see5_loc = (By.XPATH, "//li[text()='筛选荣耀V9']")
     see6_loc = (By.XPATH, "//*[text()='Apple品牌列表页']")
     see7_loc = (By.XPATH, "//*[text()='停留']")
     see8_loc=(By.XPATH,"//*[text()='3 天']")
@@ -62,18 +62,8 @@ class FunnelPage(Page):
     drop_loc=(By.CSS_SELECTOR,"#main-content > div > div:nth-child(2) > div.itblock > div > div > div")
 
 
-    def type_funnel_click(self,*loc):
-        for abc in self.driver.find_elements(*loc):
-            if abc.is_displayed():
-                abc.click()
 
-    def type_retention_send(self,send_values,*loc):
-        for abc in self.driver.find_elements(*loc):
-            if abc.is_displayed():
-                abc.clear()
-                abc.send_keys(send_values)
-
-    def type_funnel_click1(self,address):
+    def type_click3(self,address):
         self.driver.execute_script("""
         function eventFire(el, etype){
           if (el.fireEvent) {
@@ -89,50 +79,49 @@ class FunnelPage(Page):
         """)
 
     def funnel_action1(self):
-        self.type_funnel_click(*self.traffic_loc)
+        self.type_click(*self.traffic_loc)
         sleep(1)
-        self.type_funnel_click(*self.funnel_loc)
+        self.type_click(*self.funnel_loc)
         sleep(1)
-        self.type_funnel_click(*self.newfunnel_loc)
+        self.type_click(*self.newfunnel_loc)
         sleep(1)
-        self.type_funnel_click(*self.type1_loc)
+        self.type_click(*self.type1_loc)
         sleep(1.5)
-        self.type_funnel_click(*self.see1_loc)
-        # self.type_findelement(*self.see1_loc)
+        self.type_click(*self.see1_loc)
         sleep(2)
-        self.type_funnel_click(*self.page_loc)
+        self.type_click(*self.page_loc)
         sleep(1)
-        self.type_funnel_click(*self.see2_loc)
+        self.type_click(*self.see2_loc)
         sleep(1)
-        self.type_funnel_click(*self.addfunnel_loc)
+        self.type_click(*self.addfunnel_loc)
         sleep(1)
-        self.type_funnel_click(*self.page_loc)
+        self.type_click(*self.page_loc)
         sleep(1)
-        self.type_funnel_click(*self.see3_loc)
+        self.type_click(*self.see3_loc)
         sleep(1)
-        self.type_funnel_click(*self.type_loc)
+        self.type_click(*self.type_loc)
         sleep(1)
-        self.type_funnel_click(*self.see7_loc)
+        self.type_click(*self.see7_loc)
         sleep(1)
-        self.type_funnel_click(*self.addfunnel_loc)
+        self.type_click(*self.addfunnel_loc)
         sleep(1)
-        self.type_funnel_click(*self.page_loc)
+        self.type_click(*self.page_loc)
         sleep(1)
-        self.type_funnel_click(*self.see4_loc)
+        self.type_click(*self.see4_loc)
         sleep(1)
-        self.type_funnel_click(*self.event_loc)
+        self.type_click(*self.event_loc)
         sleep(1)
-        self.type_funnel_click(*self.see5_loc)
+        self.type_click(*self.see5_loc)
         sleep(2)
-        self.type_funnel_click(*self.time_loc)
+        self.type_click(*self.time_loc)
         sleep(1)
         self.time_type('2017-07-01 00:02:00','2017-07-31 00:05:00')
         sleep(1)
-        self.type_funnel_click(*self.week_loc)
+        self.type_click(*self.week_loc)
         sleep(1)
-        self.type_funnel_click(*self.see8_loc)
+        self.type_click(*self.see8_loc)
         sleep(1)
-        self.type_funnel_click(*self.done_loc)
+        self.type_click(*self.done_loc)
 
     def funnel_action2(self):
         self.driver.execute_script("""
@@ -149,25 +138,23 @@ class FunnelPage(Page):
         eventFire(btn, 'mouseover')
         """)
         sleep(1)
-        self.type_funnel_click(*self.inputname_loc)
-        sleep(0.5)
-        self.type_retention_send("测试漏斗",*self.inputname_loc)
+        self.type_send("测试漏斗",*self.inputname_loc)
         sleep(1)
-        self.type_funnel_click(*self.savebutton2_loc)
+        self.type_click(*self.savebutton2_loc)
 
 
     def funnel_action3(self):
-        self.type_funnel_click(*self.changebutton_loc)
+        self.type_click(*self.changebutton_loc)
         sleep(1)
-        self.type_funnel_click(*self.addfunnel_loc)
+        self.type_click(*self.addfunnel_loc)
         sleep(1)
-        self.type_funnel_click(*self.page_loc)
+        self.type_click(*self.page_loc)
         sleep(1)
-        self.type_funnel_click(*self.see6_loc)
+        self.type_click(*self.see6_loc)
         sleep(1)
-        self.type_funnel_click(*self.type_loc)
+        self.type_click(*self.type_loc)
         sleep(1)
-        self.type_funnel_click(*self.done_loc)
+        self.type_click(*self.done_loc)
         sleep(1)
         self.driver.execute_script("""
         function eventFire(el, etype){
@@ -183,25 +170,23 @@ class FunnelPage(Page):
         eventFire(btn, 'mouseover')
         """)
         sleep(1)
-        self.driver.find_element(*self.inputname_loc)
+        self.type_send("测试漏斗1",*self.inputname_loc)
         sleep(1)
-        self.type_retention_send("测试漏斗1",*self.inputname_loc)
-        sleep(1)
-        self.type_funnel_click(*self.updatebutton_loc)
+        self.type_click(*self.updatebutton_loc)
 
     def funnel_action4(self):
-        self.type_funnel_click(*self.lostbutton_loc)
+        self.type_click(*self.lostbutton_loc)
         sleep(1)
-        self.type_funnel_click(*self.jump_loc)
+        self.type_click(*self.jump_loc)
 
     def funnel_action5(self):
-        self.type_funnel_click(*self.drop_loc)
+        self.type_click(*self.drop_loc)
         sleep(1)
-        self.type_funnel_click(*self.see9_loc)
+        self.type_click(*self.see9_loc)
         sleep(1)
-        self.type_funnel_click(*self.deletebutton_loc)
+        self.type_click(*self.deletebutton_loc)
         sleep(1)
-        self.type_funnel_click(*self.deletesurebutton_loc)
+        self.type_click(*self.deletesurebutton_loc)
 
 
 

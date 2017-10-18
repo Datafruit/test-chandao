@@ -2,11 +2,13 @@ import unittest
 from  driver import *
 
 class StartEnd(unittest.TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         self.driver=browser()
         self.driver.maximize_window()
         self.driver.implicitly_wait(30)
 
-    def tearDown(self):
-        # self.driver.quit()
-        return 0
+    @classmethod
+    def tearDownClass(self):
+        self.driver.quit()
+        # return 0
